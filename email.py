@@ -43,11 +43,10 @@ email.columns = ['ID', 'email']
 email.head()
 
 country = papers["AD"].str.split().str[-1]
-country = country.str.extractall('(\w+\.\')')
+country = country.str.extractall('([A-Z][a-z]+)')
 country = country.reset_index()
 del country['match']
 country.columns = ['ID', 'country']
-country['country'] = country['country'].str.replace('\.\'', '')
 country
 
 AD = papers["AD"]
@@ -73,9 +72,6 @@ df_group.to_csv('C:/Users/james/Desktop/Projects/EarthOne/ATCC_product_info/Data
 
 #export the email data
 pd3.to_csv('C:/Users/james/Desktop/Projects/EarthOne/ATCC_product_info/Data/contact_info.csv')
-
-
-
 
 
 df.to_csv('C:/Users/james/Desktop/Projects/EarthOne/ATCC_product_info/Data/paper_strain.csv')
